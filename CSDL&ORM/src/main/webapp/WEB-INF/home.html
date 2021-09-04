@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/create">Create</a>
+<table border="1">
+    <tr th:each="customer,loop : ${list}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.age}"></td>
+        <td><img th:src="@{'/upload/'+${customer.img}}" width="200px" height="100px"></td>
+        <td th:text="${customer.date}"></td>
+        <td><a th:href="@{/edit(index = ${loop.index})}">Edit</a></td>
+        <td><a th:href="@{/delete(index = ${loop.index})}" >Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
